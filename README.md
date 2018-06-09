@@ -12,11 +12,11 @@ For example, here is a 'hello' service interface:
 <pre>
 public interface IHello {
 
-	String sayHello(String from, String message);
+    String sayHello(String from, String message);
 	
-	CompletableFuture<String> sayHelloAsync(String from, String message);
+    CompletableFuture<String> sayHelloAsync(String from, String message);
 	
-	Promise<String> sayHelloPromise(String from, String message);
+    Promise<String> sayHelloPromise(String from, String message);
 	
 }
 </pre>
@@ -25,31 +25,30 @@ Since the sayHelloAsync and sayHelloPromise methods can be used over a network b
 
 <pre>
 @Component(immediate=true,property = { "service.intents=osgi.async",  // R7 osgi.async remote service property
-                                       "service.exported.interfaces=*",  // RSA-required property
-									                     "osgi.basic.timeout:Long=50000"  // timeout of 50000ms=50 seconds
+                                       "service.exported.interfaces=*",  // RSA-required remote service property
+				       "osgi.basic.timeout:Long=50000"  // timeout of 50000ms=50 seconds
 									                   }
 public class HelloImpl implements IHello {
 
-...implementation of IHello interface...
+...implementation of IHello...
 </pre>
 
 When the HelloImpl service instance is exported, the osgi.async property will require the distribution provider to create a proxy that
 returns a CompletableFuture instance immediately, and require the remote service invocation timeout after 50 seconds.  Here is an example consumer for this service:
 
 <pre>
-	void bindHello(IHello hello) {
+void bindHello(IHello hello) {
 	
-		CompletableFuture<String> cf = hello.sayHelloAsync("JavaAsync","Howdy Python");
-		cf.whenComplete((resp,except) -> {
-			if (except != null)
-				except.printStackTrace();
-			else
-				System.out.println("sayHelloAsync received result="+resp);
-		});
-   }
+    hello.sayHelloAsync("JavaAsync","Howdy Python").whenComplete((resp,except) -> {
+                                                        if (except != null)
+                                                            except.printStackTrace();
+                                                        else
+                                                            System.out.println("sayHelloAsync received result="+resp);
+                                                    });
+}
 </pre>
 
-When invoked, the sayHelloAsync call will immediately return a CompletableFuture<String> instance that will timeout after 50s, or call whenComplete before that timeout with either a valid resp instance or an exception.
+When invoked, the sayHelloAsync call will immediately return a CompletableFuture<String> instance that will timeout after 50s, or call whenComplete before that timeout with either a valid resp instance or an exception.   This runtime behavior is provided via a R7-compliant distribution provider.
   
 This repostiory contains this example, as well as other examples of both synchronous and asynchronous remote services.
 
