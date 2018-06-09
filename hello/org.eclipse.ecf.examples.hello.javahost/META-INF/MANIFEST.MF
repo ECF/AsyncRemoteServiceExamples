@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Example Hello Java Host
+Bundle-SymbolicName: org.eclipse.ecf.examples.hello.javahost
+Bundle-Version: 2.0.0.qualifier
+Bundle-Vendor: Eclipse.org - ECF
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.eclipse.ecf.examples.hello,
+ org.osgi.service.component.annotations;resolution:=optional,
+ org.osgi.util.promise;version="1.0.0"
+Service-Component: OSGI-INF/org.eclipse.ecf.examples.hello.javahost.HelloImpl.xml,
+ OSGI-INF/org.eclipse.ecf.examples.hello.javahost.HelloConsumer.xml
+Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: org.eclipse.ecf.examples.hello.javahost

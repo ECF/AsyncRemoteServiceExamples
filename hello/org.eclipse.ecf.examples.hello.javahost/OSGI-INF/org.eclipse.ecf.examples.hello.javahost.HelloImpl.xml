@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipse.ecf.examples.hello.javahost.HelloImpl">
+   <property name="service.intents" value="osgi.async"/>
+   <property name="service.exported.interfaces" value="*"/>
+   <property name="osgi.basic.timeout" type="Long" value="50000"/>
+   <service>
+      <provide interface="org.eclipse.ecf.examples.hello.IHello"/>
+   </service>
+   <implementation class="org.eclipse.ecf.examples.hello.javahost.HelloImpl"/>
+</scr:component>
