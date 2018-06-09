@@ -79,6 +79,7 @@
     </pluginRepository>
   </pluginRepositories>
 
+
   <modules>
     <module>org.eclipse.ecf.examples.hello</module>
     <module>org.eclipse.ecf.examples.hello.javahost</module>
