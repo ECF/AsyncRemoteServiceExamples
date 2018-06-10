@@ -3,12 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-  <groupId>org.eclipse.ecf.examples.hello</groupId>
-  <artifactId>org.eclipse.ecf.examples.hello.parent</artifactId>
+  <groupId>org.eclipse.ecf.examples</groupId>
+  <artifactId>org.eclipse.ecf.examples.parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../</relativePath>
+    <relativePath>../../</relativePath>
   </parent>
-  <artifactId>org.eclipse.ecf.examples.hello.target</artifactId>
+  <artifactId>org.eclipse.ecf.examples.target</artifactId>
   <packaging>pom</packaging>
 
   <build>
@@ -27,16 +27,6 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>ecf-neon.target</file>
-                  <type>target</type>
-                  <classifier>ecf-neon</classifier>
-                </artifact>
-                <artifact>
-                  <file>ecf-oxygen.target</file>
-                  <type>target</type>
-                  <classifier>ecf-oxygen</classifier>
-                </artifact>
-                <artifact>
                   <file>ecf-photon.target</file>
                   <type>target</type>
                   <classifier>ecf-photon</classifier>
@@ -48,5 +38,4 @@
       </plugin>
     </plugins>
   </build>
-  <version>1.0.0.qualifier</version>
 </project>

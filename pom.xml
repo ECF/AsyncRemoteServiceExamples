@@ -11,8 +11,8 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.eclipse.ecf.examples.hello</groupId>
-  <artifactId>org.eclipse.ecf.examples.hello.parent</artifactId>
+  <groupId>org.eclipse.ecf.examples</groupId>
+  <artifactId>org.eclipse.ecf.examples.parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -81,9 +81,9 @@
 
 
   <modules>
-    <module>org.eclipse.ecf.examples.hello</module>
-    <module>org.eclipse.ecf.examples.hello.javahost</module>
-    <module>org.eclipse.ecf.examples.hello.target</module>
+    <module>releng/org.eclipse.ecf.examples.target</module>
+    <module>hello/org.eclipse.ecf.examples.hello</module>
+    <module>hello/org.eclipse.ecf.examples.hello.javahost</module>
   </modules>
 
   <build>
@@ -101,8 +101,8 @@
         <configuration>
           <target>
             <artifact>
-              <groupId>org.eclipse.ecf.examples.hello</groupId>
-              <artifactId>org.eclipse.ecf.examples.hello.target</artifactId>
+              <groupId>org.eclipse.ecf.examples</groupId>
+              <artifactId>org.eclipse.ecf.examples.target</artifactId>
               <classifier>ecf-${target-platform}</classifier>
               <version>1.0.0-SNAPSHOT</version>
             </artifact>
