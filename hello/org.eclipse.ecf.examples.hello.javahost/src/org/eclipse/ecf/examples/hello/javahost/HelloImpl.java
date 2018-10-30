@@ -15,7 +15,7 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.util.promise.Deferred;
 import org.osgi.util.promise.Promise;
 
-@Component(immediate=true,property = { "service.intents=osgi.async" ,  // osgi.async intent to get the behavior
+@Component(immediate=true,property = { "service.exported.intents=osgi.async" ,  // osgi.async intent to get the behavior
 // defined <a href="https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html#d0e1407">here</a>.
 		                               "service.exported.interfaces=*",  // RS/RSA-required to export as remote service
 									   "osgi.basic.timeout:Long=50000"    // timeout of 50000ms=50 seconds
